@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Principale</title>
-    <link rel="stylesheet" href="style.css"> <!-- Si tu as un fichier CSS global -->
+    <title>Page 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur le site web</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="page1.html">Page 1</a></li> <!-- Lien vers ta nouvelle page -->
-                <!-- Ajoute d'autres liens si besoin -->
-            </ul>
-        </nav>
+        <h1>Bienvenue sur Page 1</h1>
     </header>
     <main>
-        <p>Ceci est la page principale du site web.</p>
+        <p>Ceci est la page 1 du site web.</p>
+
+        <!-- Sélection dans la liste -->
+        <label for="item-select">Choisissez un élément :</label>
+        <select id="item-select">
+            <option value="">Sélectionnez un élément</option>
+            <!-- Les options seront ajoutées dynamiquement via JavaScript -->
+        </select>
     </main>
     <footer>
         <p>&copy; 2024 Mon Site Web</p>
