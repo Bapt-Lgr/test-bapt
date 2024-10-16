@@ -30,7 +30,7 @@ async function loadCSV() {
 window.onload = loadCSV;
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch('../materials.csv')
+    fetch('../static/csv/materials.csv')
         .then(response => response.text())
         .then(data => {
             // Vérifier le séparateur du fichier CSV (utiliser ; ou ,)
