@@ -28,3 +28,41 @@ async function loadCSV() {
 
 // Appel de la fonction au chargement de la page
 window.onload = loadCSV;
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('../materials.csv')
+        .then(response => response.text())
+        .then(data => {
+            // Vérifier le séparateur du fichier CSV (utiliser ; ou ,)
+            const rows = data.split('\n').map(row => row.split(';'));
+
+            const table = document.createElement('table');
+            const tableBody = document.createElement('tbody');
+
+            // Créer l'en-tête du tableau
+            const headerRow = document.createElement('tr');
+            const headers = rows[0];
+            headers.forEach(headerText => {
+                const headerCell = document.createElement('th');
+                headerCell.textContent = headerText;
+                headerRow.appendChild(headerCell);
+            });
+            table.appendChild(headerRow);
+
+            // Ajouter les données du tableau
+            rows.slice(1).forEach(row => {
+                const rowElement = document.createElement('tr');
+                row.forEach(columnText => {
+                    const cell = document.createElement('td');
+                    cell.textContent = columnText;
+                    rowElement.appendChild(cell);
+                });
+                tableBody.appendChild(rowElement);
+            });
+
+            table.appendChild(tableBody);
+            document.querySelector('.content').appendChild(table);
+        })
+        .catch(error => console.error('Erreur lors du chargement du CSV:', error));
+});
+
